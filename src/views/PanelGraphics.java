@@ -45,5 +45,15 @@ public class PanelGraphics extends JPanel{
 		}
 		repaint();
 	}
-	
+	public boolean manageCoalition() {
+		boolean aux = false;
+		Node<Runner> head = runnerList.getHead();
+		while (head != null) {
+			if (head.getInformation().getRectangle().intersection(rectangle) != null) {
+				aux = true;
+			}
+			head = head.getNext();
+		}
+		return aux;
+	}
 }

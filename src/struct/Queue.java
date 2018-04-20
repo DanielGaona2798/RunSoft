@@ -85,6 +85,10 @@ public class Queue <T>{
 		reference.setNext(null);
 		return reference;
 	}
+
+	public void clear() {
+		head = null;
+	}
 	
 //	public void priorityQueue(Node<T> node) {
 //		System.out.println("agregaaaaaaa");

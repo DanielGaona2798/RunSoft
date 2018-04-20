@@ -41,21 +41,22 @@ public class PanelGraphics extends JPanel{
 	public void changeLocation() {
 		Node<Runner> head = runnerList.getHead();
 		while (head != null) {
-			if (head.getInformation().getRectangle().getX() < getWidth()-150) {
+			if (head.getInformation().getRectangle().getX() < getWidth()-140) {
 				head.getInformation().getRectangle().setBounds(head.getInformation().getRectangle().x + head.getInformation().getRun(), head.getInformation().getRectangle().y, head.getInformation().getRectangle().height, head.getInformation().getRectangle().width);
-			}else if (manageCoalition(head)) {
-				winList.enqueue(head.getInformation());
 			}
 			head = head.getNext();
 		}
 		repaint();
 	}
-	public boolean manageCoalition(Node<Runner> current) {
-		boolean aux = false;
-		if (current.getInformation().getRectangle().intersects(rectangle)) {
-			aux = true;
+	public void manageCoalition() {
+		Node<Runner> runner = runnerList.getHead(); 
+		while (runner != null) {
+			if (runner.getInformation().getRectangle().intersects(rectangle)) {
+				winList.enqueue(runner.getInformation());
+				runner.getInformation().getRectangle().setBounds(runner.getInformation().getRectangle().x + 300, runner.getInformation().getRectangle().y, runner.getInformation().getRectangle().height, runner.getInformation().getRectangle().width);
+			}
+			runner = runner.getNext();
 		}
-		return aux;
 	}
 
 	public Queue<Runner> getWinList() {

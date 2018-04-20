@@ -44,5 +44,8 @@ public class MainWindow extends JFrame{
 	public Queue<Runner> getWinList(){
 		return graphics.getWinList();
 	}
+	public void mannageCoaliton() {
+		graphics.manageCoalition();
+	}
 	
 }

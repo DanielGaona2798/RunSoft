@@ -1,6 +1,6 @@
 package controller;
 
 public enum Actions {
-	START
+	START, SHOW_WINNERS
 
 }

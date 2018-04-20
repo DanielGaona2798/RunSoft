@@ -41,6 +41,10 @@ public class Runner {
 	public void setRun(int run) {
 		this.run = run;
 	}
+
+	public String[] getObjectVector() {
+		return new String[]{String.valueOf(id),name};
+	}
 	
 	
 }

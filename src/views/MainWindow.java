@@ -27,12 +27,22 @@ public class MainWindow extends JFrame{
 		btnStart.setActionCommand(Actions.START.toString());
 		btnStart.addActionListener(controller);
 		add(btnStart, BorderLayout.SOUTH);
+		
+		JButton btnShow = new JButton("SHOW");
+		btnShow.setActionCommand(Actions.SHOW_WINNERS.toString());
+		btnShow.addActionListener(controller);
+		add(btnShow, BorderLayout.NORTH);
+		
 		add(graphics, BorderLayout.CENTER);
 		setVisible(true);
 	}
 	
 	public void changePosition() {
 		graphics.changeLocation();
+	}
+	
+	public Queue<Runner> getWinList(){
+		return graphics.getWinList();
 	}
 	
 }

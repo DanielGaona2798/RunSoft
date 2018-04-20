@@ -3,7 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.sun.corba.se.spi.orbutil.fsm.Action;
+import javax.swing.Timer;
 
 import models.dao.RunnerMannager;
 import models.dao.StageMannager;
@@ -19,16 +19,30 @@ public class Controller implements ActionListener{
 		runnerMannager = new RunnerMannager();
 		stageMannager = new StageMannager();
 		mainWindow = new MainWindow(runnerMannager.getRunnerList(), this);
+		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (Actions.valueOf(e.getActionCommand().toString())) {
 		case START:
-			mainWindow.changePosition();
+			changePosition();
 			break;
 		}
 	}
+
+	private void changePosition() {
+		Timer timer = new Timer(40, new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mainWindow.changePosition();
+			}
+		});
+		timer.start();
+	}
+
+				
 	
 
 }

@@ -1,13 +1,12 @@
 package views;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import com.sun.javafx.geom.Rectangle;
 
 import models.entities.Runner;
 import struct.Node;
@@ -40,7 +39,9 @@ public class PanelGraphics extends JPanel{
 	public void changeLocation() {
 		Node<Runner> head = runnerList.getHead();
 		while (head != null) {
-			head.getInformation().getRectangle().setBounds(head.getInformation().getRectangle().x + head.getInformation().getRun(), head.getInformation().getRectangle().y, head.getInformation().getRectangle().height, head.getInformation().getRectangle().width);
+			if (head.getInformation().getRectangle().getX() < getWidth()-150) {
+				head.getInformation().getRectangle().setBounds(head.getInformation().getRectangle().x + head.getInformation().getRun(), head.getInformation().getRectangle().y, head.getInformation().getRectangle().height, head.getInformation().getRectangle().width);
+			}
 			head = head.getNext();
 		}
 		repaint();
@@ -49,7 +50,7 @@ public class PanelGraphics extends JPanel{
 		boolean aux = false;
 		Node<Runner> head = runnerList.getHead();
 		while (head != null) {
-			if (head.getInformation().getRectangle().intersection(rectangle) != null) {
+			if (head.getInformation().getRectangle().intersects(rectangle)) {
 				aux = true;
 			}
 			head = head.getNext();

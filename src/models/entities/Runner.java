@@ -1,6 +1,6 @@
 package models.entities;
 
-import com.sun.javafx.geom.Rectangle;
+import java.awt.Rectangle;
 
 public class Runner {
 

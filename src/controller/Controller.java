@@ -23,7 +23,7 @@ public class Controller implements ActionListener{
 		runnerMannager = new RunnerMannager();
 		stageMannager = new StageMannager();
 		mainWindow = new MainWindow(runnerMannager.getRunnerList(), this);
-		panelTable = new PanelTable();
+		panelTable = new PanelTable(this);
 	}
 
 	@Override

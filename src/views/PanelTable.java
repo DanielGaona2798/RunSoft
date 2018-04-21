@@ -4,11 +4,16 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import controller.Actions;
+import controller.ContantsUi;
+import controller.Controller;
 import models.entities.Runner;
 import struct.Node;
 import struct.Queue;
@@ -20,9 +25,11 @@ public class PanelTable extends JDialog{
 	private JTable table;
 	private JScrollPane scroll;
 
-	public PanelTable() {
+	public PanelTable(Controller controller) {
 		setLayout(new BorderLayout());
 
+		setTitle("Runner Soft");
+		setIconImage(new ImageIcon(getClass().getResource("/img/icon.png")).getImage());
 		setSize(400,500);
 		model = new DefaultTableModel();
 		model.setColumnIdentifiers(new String[] {"ID","NAME"});
@@ -39,6 +46,13 @@ public class PanelTable extends JDialog{
 		scroll = new JScrollPane(table);
 
 		add(scroll, BorderLayout.CENTER);
+		
+		JButton btnStage = new JButton("END STAGE");
+		btnStage.setActionCommand(Actions.START.toString());
+		btnStage.addActionListener(controller);
+		btnStage.setBackground(ContantsUi.COLOR_BTN);
+		btnStage.setForeground(ContantsUi.COLOR_FORGROUND_BTN);
+		add(btnStage, BorderLayout.SOUTH);
 	}
 
 	public void refreshTable(Queue<Runner> runnerList) {

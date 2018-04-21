@@ -5,12 +5,14 @@ import struct.Queue;
 public class Stage {
 
 	private int id;
+	private String stage;
 	private Queue<Runner> runnerList;
 	
 
-	public Stage(int id, Queue<Runner> runnerList) {
+	public Stage(int id ,String stage, Queue<Runner> runnerList) {
 		super();
 		this.id = id;
+		this.stage =stage;
 		this.runnerList = runnerList;
 	}
 
@@ -21,5 +23,9 @@ public class Stage {
 	public Queue<Runner> getRunnerList() {
 		return runnerList;
 	}
-	
+
+	public String getStage() {
+		return stage;
+	}
+
 }

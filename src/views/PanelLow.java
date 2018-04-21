@@ -18,6 +18,7 @@ public class PanelLow extends JPanel{
 	private JTextField txtRunner;
 	private JSpinner spinnerIdRunner;
 	private JSpinner spinnerIdStage;
+	private JTextField txtStage;
 
 	public PanelLow(Controller controller) {
 		setLayout(new GridLayout(1, 3));
@@ -40,10 +41,13 @@ public class PanelLow extends JPanel{
 		add(pnlLeft);
 		
 		JPanel pnlCenter = new JPanel();
-		pnlCenter.setLayout(new GridLayout(2,1));
+		pnlCenter.setLayout(new GridLayout(3,1));
 		pnlCenter.setBorder(new TitledBorder("End Stage"));
 		spinnerIdStage = new JSpinner();
 		pnlCenter.add(spinnerIdStage);
+	
+		txtStage = new JTextField();
+		pnlCenter.add(txtStage);
 		
 		JButton btnStage = new JButton("Add Stage");
 		btnStage.setActionCommand(Actions.ADD_STAGE.toString());

@@ -1,3 +1,4 @@
+
 package controller;
 
 import java.awt.event.ActionEvent;
@@ -16,6 +17,7 @@ public class Controller implements ActionListener{
 	private StageMannager stageMannager;
 	private MainWindow mainWindow;
 	private PanelTable panelTable;
+	private Timer timer;
 
 	public Controller() {
 		runnerMannager = new RunnerMannager();
@@ -33,18 +35,27 @@ public class Controller implements ActionListener{
 		case SHOW_WINNERS:
 			showDialog();
 			break;
+		case ADD_RUNNER:
+			break;
+		case ADD_STAGE:
+			break;
+		case STOP:
+			timer.stop();
+			break;
 		}
 	}
 
 	private void showDialog() {
 		panelTable.refreshTable(mainWindow.getWinList());
 		panelTable.setVisible(true);
+		timer.stop();
 	}
 
 	private void changePosition() {
-		Timer timer = new Timer(40, new ActionListener() {
+		timer = new Timer(40, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				mainWindow.mannageCoaliton();
 				mainWindow.changePosition();
 			}
 		});

@@ -2,6 +2,7 @@ package views;
 
 import java.awt.BorderLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import controller.Controller;
@@ -16,6 +17,9 @@ public class MainWindow extends JFrame{
 	private PanelLow panelLow;
 	
 	public MainWindow(Queue<Runner> runnerList, Controller controller) {
+		
+		setIconImage(new ImageIcon(getClass().getResource("/img/icon.png")).getImage());
+		setTitle("Runner Soft");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setExtendedState(MAXIMIZED_BOTH);
 		setLayout(new BorderLayout());

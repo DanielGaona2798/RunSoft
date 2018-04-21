@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 import controller.Actions;
+import controller.ContantsUi;
 import controller.Controller;
 
 public class PanelLow extends JPanel{
@@ -32,6 +33,8 @@ public class PanelLow extends JPanel{
 		JButton btnRunner = new JButton("ADD_RUNNER");
 		btnRunner.setActionCommand(Actions.ADD_RUNNER.toString());
 		btnRunner.addActionListener(controller);
+		btnRunner.setBackground(ContantsUi.COLOR_BTN);
+		btnRunner.setForeground(ContantsUi.COLOR_FORGROUND_BTN);
 		pnlLeft.add(btnRunner);
 		
 		add(pnlLeft);
@@ -45,6 +48,8 @@ public class PanelLow extends JPanel{
 		JButton btnStage = new JButton("Add Stage");
 		btnStage.setActionCommand(Actions.ADD_STAGE.toString());
 		btnStage.addActionListener(controller);
+		btnStage.setBackground(ContantsUi.COLOR_BTN);
+		btnStage.setForeground(ContantsUi.COLOR_FORGROUND_BTN);
 		pnlCenter.add(btnStage);
 		
 		add(pnlCenter);
@@ -56,17 +61,23 @@ public class PanelLow extends JPanel{
 		JButton btnStart = new JButton("START");
 		btnStart.setActionCommand(Actions.START.toString());
 		btnStart.addActionListener(controller);
+		btnStart.setBackground(ContantsUi.COLOR_BTN);
+		btnStart.setForeground(ContantsUi.COLOR_FORGROUND_BTN);
 		pnlRigth.add(btnStart);
 		
 		
 		JButton btnShow = new JButton("SHOW");
 		btnShow.setActionCommand(Actions.SHOW_WINNERS.toString());
 		btnShow.addActionListener(controller);
+		btnShow.setBackground(ContantsUi.COLOR_BTN);
+		btnShow.setForeground(ContantsUi.COLOR_FORGROUND_BTN);
 		pnlRigth.add(btnShow);
 		
 		JButton btnStop = new JButton("STOP");
 		btnStop.setActionCommand(Actions.STOP.toString());
 		btnStop.addActionListener(controller);
+		btnStop.setBackground(ContantsUi.COLOR_BTN);
+		btnStop.setForeground(ContantsUi.COLOR_FORGROUND_BTN);
 		pnlRigth.add(btnStop);
 		
 		add(pnlRigth);

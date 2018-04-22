@@ -4,6 +4,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 import models.dao.RunnerMannager;
@@ -49,7 +50,7 @@ public class Controller implements ActionListener{
 			addStage();
 			break;
 		case STOP:
-			timer.stop();
+			stop();
 			break;
 		case VIEW_WINNERS:
 			viewWinners();
@@ -57,6 +58,16 @@ public class Controller implements ActionListener{
 		case SHOW_STAGES:
 			showStages();
 			break;
+		}
+	}
+
+	private void stop() {
+		if (timer != null) {
+			if (timer.isRunning()) {
+				timer.stop();
+			}
+		}else{
+			JOptionPane.showMessageDialog(null, "primero debes iniciar la simulacion");
 		}
 	}
 
@@ -85,9 +96,16 @@ public class Controller implements ActionListener{
 	}
 
 	private void showDialog() {
-		panelTable.refreshTable(mainWindow.getWinList());
-		panelTable.setVisible(true);
-		timer.stop();
+		if (timer != null) {
+			if (timer.isRunning()) {
+				panelTable.refreshTable(mainWindow.getWinList());
+				panelTable.setVisible(true);
+				timer.stop();
+
+			}
+		}else{
+			JOptionPane.showMessageDialog(null, "primero debes iniciar la simulacion");
+		}
 	}
 
 	private void changePosition() {

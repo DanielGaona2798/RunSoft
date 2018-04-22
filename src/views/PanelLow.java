@@ -50,7 +50,7 @@ public class PanelLow extends JPanel{
 		pnlCenter.add(txtStage);
 		
 		JButton btnStage = new JButton("Add Stage");
-		btnStage.setActionCommand(Actions.ADD_STAGE.toString());
+		btnStage.setActionCommand(Actions.SHOW_WINNERS.toString());
 		btnStage.addActionListener(controller);
 		btnStage.setBackground(ContantsUi.COLOR_BTN);
 		btnStage.setForeground(ContantsUi.COLOR_FORGROUND_BTN);
@@ -70,8 +70,8 @@ public class PanelLow extends JPanel{
 		pnlRigth.add(btnStart);
 		
 		
-		JButton btnShow = new JButton("SHOW");
-		btnShow.setActionCommand(Actions.SHOW_WINNERS.toString());
+		JButton btnShow = new JButton("SHOW STAGES");
+		btnShow.setActionCommand(Actions.SHOW_STAGES.toString());
 		btnShow.addActionListener(controller);
 		btnShow.setBackground(ContantsUi.COLOR_BTN);
 		btnShow.setForeground(ContantsUi.COLOR_FORGROUND_BTN);
@@ -86,5 +86,31 @@ public class PanelLow extends JPanel{
 		
 		add(pnlRigth);
 		
+	}
+
+	public int getIdRunner() {
+		return (int) spinnerIdRunner.getValue();
+	}
+
+	public String getNameRunner() {
+		return txtRunner.getText();
+	}
+	
+	public void clearRunner(){
+		spinnerIdRunner.setValue(0);
+		txtRunner.setText("");
+	}
+
+	public int getIdStage() {
+		return (int) spinnerIdStage.getValue();
+	}
+
+	public String getNameStage() {
+		return txtStage.getText();
+	}
+
+	public void clearStage(){
+		spinnerIdStage.setValue(0);
+		txtStage.setText("");
 	}
 }

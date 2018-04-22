@@ -1,26 +1,29 @@
 package models.dao;
 
+import controller.ContantsUi;
 import models.entities.Runner;
 import struct.Queue;
 
 public class RunnerMannager {
 
 	private Queue<Runner> runnerList;
+	private int y = 10;
 	
 	public RunnerMannager() {
 		runnerList = new Queue<>();
-		runnerList.enqueue(new Runner(1, "gaona", 10, 10));
-		runnerList.enqueue(new Runner(2, "gaona", 10, 80));
-		runnerList.enqueue(new Runner(3, "gaona", 10, 150));
-		runnerList.enqueue(new Runner(4, "gaona", 10, 230));
-	}
-	
-	public void addRunner(Runner runner){
-		runnerList.enqueue(runner);
+		runnerList.enqueue(new Runner(1, "Basic Runner", ContantsUi.POSITION_X, y));
+	}	
+	public void addRunner(int id, String name){
+		y+=60;
+		runnerList.enqueue(new Runner(id, name, ContantsUi.POSITION_X, y));
 	}
 
 	public Queue<Runner> getRunnerList() {
 		return runnerList;
+	}
+	public void initVarY() {
+		y=10;
+		runnerList.enqueue(new Runner(1, "Basic Runner", ContantsUi.POSITION_X, y));
 	}
 	
 }

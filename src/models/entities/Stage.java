@@ -1,5 +1,6 @@
 package models.entities;
 
+
 import struct.Queue;
 
 public class Stage {
@@ -26,6 +27,10 @@ public class Stage {
 
 	public String getStage() {
 		return stage;
+	}
+
+	public String[] getObjectVector() {
+		return new String[]{String.valueOf(id),stage};
 	}
 
 }

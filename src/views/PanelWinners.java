@@ -5,27 +5,24 @@ import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import controller.Actions;
-import controller.ContantsUi;
-import controller.Controller;
 import models.entities.Runner;
 import struct.Node;
 import struct.Queue;
 
 
-public class PanelTable extends JDialog{
+public class PanelWinners extends JDialog{
+	
 	private static final long serialVersionUID = 1L;
 	private DefaultTableModel model;
 	private JTable table;
 	private JScrollPane scroll;
 
-	public PanelTable(Controller controller) {
+	public PanelWinners() {
 		setLayout(new BorderLayout());
 
 		setTitle("Runner Soft");
@@ -46,13 +43,6 @@ public class PanelTable extends JDialog{
 		scroll = new JScrollPane(table);
 
 		add(scroll, BorderLayout.CENTER);
-		
-		JButton btnStage = new JButton("END STAGE");
-		btnStage.setActionCommand(Actions.ADD_STAGE.toString());
-		btnStage.addActionListener(controller);
-		btnStage.setBackground(ContantsUi.COLOR_BTN);
-		btnStage.setForeground(ContantsUi.COLOR_FORGROUND_BTN);
-		add(btnStage, BorderLayout.SOUTH);
 	}
 
 	public void refreshTable(Queue<Runner> runnerList) {

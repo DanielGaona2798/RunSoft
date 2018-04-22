@@ -25,6 +25,11 @@ public class PanelGraphics extends JPanel{
 		this.runnerList = runnerList;
 		winList = new Queue<>();
 	}
+	
+	public void setRunnerList(Queue<Runner> runnerList){
+		this.runnerList = runnerList;
+		repaint();
+	}
 
 	public void paint(Graphics g){
 		super.paint(g);
@@ -61,6 +66,11 @@ public class PanelGraphics extends JPanel{
 
 	public Queue<Runner> getWinList() {
 		return winList;
+	}
+
+	public void clearWinnerList() {
+		winList = null;
+		winList = new Queue<>();
 	}
 	
 	

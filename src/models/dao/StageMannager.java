@@ -2,6 +2,7 @@ package models.dao;
 
 import models.entities.Stage;
 import struct.MyList;
+import struct.Node;
 
 public class StageMannager {
 
@@ -17,6 +18,18 @@ public class StageMannager {
 	
 	public MyList<Stage> getStageList() {
 		return stageList;
+	}
+
+	public Stage getStageForId(int selectedId) {
+		Stage a = null;
+		Node<Stage> head = stageList.getHead();
+		while (head != null) {
+			if (head.getInformation().getId() == selectedId) {
+				a = head.getInformation();
+			}
+			head = head.getNext();
+		}
+		return a;
 	}
 	
 	

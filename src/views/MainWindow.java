@@ -16,7 +16,7 @@ public class MainWindow extends JFrame{
 	private PanelGraphics graphics;
 	private PanelLow panelLow;
 	
-	public MainWindow(Queue<Runner> runnerList, Controller controller) {
+	public MainWindow(Queue<Runner> runnerList,Controller controller) {
 		
 		setIconImage(new ImageIcon(getClass().getResource("/img/icon.png")).getImage());
 		setTitle("Runner Soft");
@@ -33,6 +33,9 @@ public class MainWindow extends JFrame{
 		setVisible(true);
 	}
 	
+	public void setRunnerList(Queue<Runner> runnerList){
+		graphics.setRunnerList(runnerList);
+	}
 	public void changePosition() {
 		graphics.changeLocation();
 	}
@@ -43,5 +46,32 @@ public class MainWindow extends JFrame{
 	public void mannageCoaliton() {
 		graphics.manageCoalition();
 	}
+
+	public int getIdRunner() {
+		return panelLow.getIdRunner();
+	}
+
+	public String getNameRunner() {
+		return panelLow.getNameRunner();
+	}
+
+	public void clearRunner() {
+		panelLow.clearRunner();
+	}
+
+	public int getStageId() {
+		return panelLow.getIdStage();
+	}
+
+	public String getNameStage() {
+		return panelLow.getNameStage();
+	}
 	
+	public void clearStage(){
+		panelLow.clearStage();
+	}
+
+	public void clearWinnerList() {
+		graphics.clearWinnerList();
+	}
 }

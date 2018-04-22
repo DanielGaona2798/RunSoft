@@ -32,6 +32,13 @@ public class Controller implements ActionListener{
 		panelTable = new PanelTable(this);
 		stageDialog = new AddStageDialog(this);
 		panelWinners = new PanelWinners();
+		timer = new Timer(40, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mainWindow.mannageCoaliton();
+				mainWindow.changePosition();
+			}
+		});
 	}
 
 	@Override
@@ -62,10 +69,8 @@ public class Controller implements ActionListener{
 	}
 
 	private void stop() {
-		if (timer != null) {
-			if (timer.isRunning()) {
-				timer.stop();
-			}
+		if (timer.isRunning()) {
+			timer.stop();
 		}else{
 			JOptionPane.showMessageDialog(null, "primero debes iniciar la simulacion");
 		}
@@ -96,26 +101,22 @@ public class Controller implements ActionListener{
 	}
 
 	private void showDialog() {
-		if (timer != null) {
-			if (timer.isRunning()) {
-				panelTable.refreshTable(mainWindow.getWinList());
-				panelTable.setVisible(true);
-				timer.stop();
+		if (timer.isRunning()) {
+			panelTable.refreshTable(mainWindow.getWinList());
+			panelTable.setVisible(true);
+			timer.stop();
 
-			}
-		}else{
+		}
+		else{
 			JOptionPane.showMessageDialog(null, "primero debes iniciar la simulacion");
 		}
 	}
 
 	private void changePosition() {
-		timer = new Timer(40, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mainWindow.mannageCoaliton();
-				mainWindow.changePosition();
-			}
-		});
-		timer.start();
+		if (timer.isRunning()) {
+			JOptionPane.showMessageDialog(null, "El simulador ya esta corriendo");
+		}else{
+			timer.start();
+		}
 	}
 }

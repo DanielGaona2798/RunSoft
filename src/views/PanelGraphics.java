@@ -39,7 +39,7 @@ public class PanelGraphics extends JPanel{
 			head = head.getNext();
 		}
 		g.setColor(Color.BLACK);
-		g.fillRect(getWidth()-100, 10, 100, 1000);
+		g.drawImage(new ImageIcon(getClass().getResource("/img/meta.jpg")).getImage(),getWidth()-100, 10, 100, 1000, this);
 		rectangle = new Rectangle(getWidth()-100, 10, 100, 1000);
 	}
 

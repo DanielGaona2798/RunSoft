@@ -14,7 +14,7 @@ public class RunnerMannager {
 		runnerList.enqueue(new Runner(1, "Basic Runner", ContantsUi.POSITION_X, y));
 	}	
 	public void addRunner(int id, String name){
-		y+=60;
+		y+=75;
 		runnerList.enqueue(new Runner(id, name, ContantsUi.POSITION_X, y));
 	}
 

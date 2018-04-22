@@ -21,6 +21,7 @@ public class PanelGraphics extends JPanel{
 	private Rectangle rectangle;
 	private Queue<Runner> winList;
 
+	
 	public PanelGraphics(Queue<Runner> runnerList) {
 		this.runnerList = runnerList;
 		winList = new Queue<>();
@@ -33,6 +34,7 @@ public class PanelGraphics extends JPanel{
 
 	public void paint(Graphics g){
 		super.paint(g);
+		g.drawImage(new ImageIcon(getClass().getResource("/img/1.png")).getImage(), 0, 0, getWidth(), getHeight(), this);
 		Node<Runner> head = runnerList.getHead();
 		while (head != null) {
 			g.drawImage(new ImageIcon(getClass().getResource("/img/runner.png")).getImage(), head.getInformation().getRectangle().x, head.getInformation().getRectangle().y, head.getInformation().getRectangle().height,head.getInformation().getRectangle().width , this);

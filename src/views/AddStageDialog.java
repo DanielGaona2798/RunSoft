@@ -66,6 +66,6 @@ public class AddStageDialog extends JDialog{
 	}
 
 	public int getSelectedId(){
-		return (int) table.getValueAt(table.getSelectedRow(), 0);
+		return Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0))) ;
 	}
 }
